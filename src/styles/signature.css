@@ -1,0 +1,13 @@
+.signature-canvas {
+  touch-action: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+  .signature-canvas {
+    max-width: 100%;
+    max-height: 200px;
+  }
+}

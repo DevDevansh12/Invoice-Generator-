@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile-first responsive styles */
+@layer base {
+  html {
+    @apply text-base;
+  }
+
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .mobile-container {
+    @apply px-4 py-2 md:px-6 md:py-4;
+  }
+
+  .card-container {
+    @apply p-4 md:p-6;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6;
+  }
+
+  .button-group {
+    @apply flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2;
+  }
+
+  .table-container {
+    @apply overflow-x-auto -mx-4 md:mx-0;
+  }
+
+  .table-wrapper {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  /* Responsive table styles */
+  .responsive-table {
+    @apply w-full;
+  }
+
+  .responsive-table th {
+    @apply hidden md:table-cell;
+  }
+
+  .responsive-table td {
+    @apply block md:table-cell;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    @apply font-medium md:hidden;
+  }
+
+  /* Form layouts */
+  .form-section {
+    @apply space-y-4 md:space-y-6;
+  }
+
+  .form-row {
+    @apply flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0;
+  }
+
+  .form-col {
+    @apply flex-1;
+  }
+}
+
+/* Signature canvas styles */
+.signature-canvas {
+  touch-action: none;
+  width: 100% !important;
+  height: 200px !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .signature-canvas {
+    height: 150px !important;
+  }
+
+  .mobile-stack {
+    @apply flex-col !important;
+  }
+
+  .mobile-full {
+    @apply w-full !important;
+  }
+
+  .mobile-hide {
+    @apply hidden !important;
+  }
+
+  .mobile-show {
+    @apply block !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #invoice-container,
+  #invoice-container * {
+    visibility: visible;
+  }
+  
+  #invoice-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Dashboard responsive grid */
+.dashboard-grid {
+  @apply grid gap-4 md:gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Card responsive styles */
+.responsive-card {
+  @apply rounded-lg border border-gray-200 shadow-sm overflow-hidden bg-white;
+  @apply transform transition-transform duration-200;
+}
+
+.responsive-card:hover {
+  @apply shadow-md;
+}
+
+/* Button responsive styles */
+.responsive-button-group {
+  @apply flex flex-wrap gap-2;
+}
+
+/* Form field responsive styles */
+.form-field {
+  @apply mb-4;
+}
+
+.form-field label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  @apply w-full rounded-md border border-gray-300 shadow-sm px-4 py-2;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
